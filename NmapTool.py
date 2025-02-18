@@ -103,7 +103,7 @@ def main():
 def basic():
     ip = input("\nTarget IP: ")
     print(f"\nScanning {ip}...")
-    command = ["nmap", ip]
+    command = ["nmap", "-p-", ip]
     result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     
     display_results(result.stdout)
@@ -113,7 +113,7 @@ def basic():
 def service():
     ip = input("\nTarget IP: ")
     print(f'\nScanning Ports Services of {ip}...')
-    command = ["nmap", "-sV", ip]
+    command = ["nmap", "-sV", "-p-", ip]
     result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     
     display_results(result.stdout)
@@ -123,13 +123,13 @@ def service():
 def firewall():
     ip = input("\nTarget IP:")
     print(f'\nScanning Ports Bypassing The Firewall of {ip}')
-    command = ["nmap", "--disable-arp-ping", "--source-port", "53", "-sS", "-Pn", "-n", ip]
+    command = ["nmap", "-Pn", "-sS", "--min-rate 5000", "---source-port 53", "--max-retries 1", "-p-", ip]
     result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     
     display_results(result.stdout)
     input("\nPress Enter to continue...")
     main()
-
+    
 def best():
     ip = input("\nTarget IP:")
     print(f'\nScanning with Best Config of {ip}')
