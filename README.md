@@ -1,8 +1,7 @@
 ```markdown
 # NmapTool
 
-NmapTool is a Python-based network scanner tool that allows you to discover devices on your local network and perform various Nmap scans such as basic scans, service scans, firewall bypass scans, and more.
-
+Do you always forget specific nmap commands like commands to get the service version? Install NmapTool! It's a tool made in python that is designed for those who like me forget nmap commands. It groups together a lot of very useful commands in a lot of different situations.
 ## Requirements
 
 - Python 3.x
