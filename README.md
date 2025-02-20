@@ -64,12 +64,14 @@ After running the script, you will be presented with a menu:
 ```
 
 ### Options:
-- **[1] Basic Scan:** Scans open ports without version detection (`nmap 'ip'`).
-- **[2] Service and Version Scan:** Identifies open ports and detects services running on them (`nmap -sV 'ip'`).
-- **[3] Bypass Firewall Scan:** Uses stealth techniques to bypass firewalls (`nmap --disable-arp-ping --source-port 53 -sS -Pn -n 'ip'`).
-- **[4] Best Nmap Scan:** A comprehensive scan with service detection and OS fingerprinting (`nmap -A -p- -v 'ip'`).
-- **[D] Discover Local IP on Network:** Lists active devices on your local network, along with their IP address and MAC address.
-- **[H] Help:** Displays the help menu.
+print("[1] Basic Scan:               - Scans open ports without version detection                                                                       Command: nmap 'ip'.
+- [2] Service and Version Scan:      - Identifies open ports and detects services running on them.                                                      Command: nmap -sV 'ip'.
+- [3] Bypass Firewall Scan:          - Uses stealth techniques to evade firewalls.                                                                      Command: nmap --disable-arp-ping --source-port 53 -sS -Pn -n 'ip'.
+- [4] Best Nmap Scan:                - Comprehensive scan with service detection and OS fingerprinting                                                  Command: nmap -A -p- -v 'ip'.")
+- [5] Mask IP Scan:                  - Mix your IP address with others to confuse the target machine (your IP is still displayed but mixed with others) Command: nmap -sS -Pn -D RND,RND,ME 'ip'.
+- [6] Very Fast Scanner              - Uses The Bests Options To Scan Most Faster (much more likely to get spotted)                                     Command: nmap -T5 --min-rate 10000 --max-retries 1 --min-parallelism 50 -Pn -n -sS           
+- [D] Discover Local IP on Network:  - Lists active devices on the network, our IP Adress and our MAC Adress.")
+- [H] Help                           - Show this help menu.")
 
 ## License
 
